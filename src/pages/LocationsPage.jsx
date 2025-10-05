@@ -14,6 +14,11 @@ import BhimavaramImg from "../assets/Bhimavaram.jpeg";
 import PalakolluImg from "../assets/Palakollu.jpeg";
 import NarsapuramImg from "../assets/Narsapuram.jpeg";
 import JangareddygudemImg from "../assets/Jangareddygudem.jpeg";
+import AmalapuramImg from "../assets/Amalapuram.jpeg";
+import KakinadaImg from "../assets/Kakinada.jpeg";
+import TuniImg from "../assets/Tuni.jpeg";  
+import AnnavaramImg from "../assets/Annavaram.jpeg";
+import PithapuramImg from "../assets/Pithapuram.jpeg";
 
 
 // Full list of locations
@@ -29,15 +34,12 @@ const locations = [
   { name: "Palakollu", image: PalakolluImg },
   { name: "Narsapuram", image: NarsapuramImg },
   { name: "Jangareddygudem", image: JangareddygudemImg },
-  { name: "Amalapuram", image: "https://source.unsplash.com/600x400/?amalapuram,city" },
-  { name: "Kakinada", image: "https://source.unsplash.com/600x400/?kakinada,city" },
-  { name: "Tuni", image: "https://source.unsplash.com/600x400/?tuni,city" },
-  { name: "Annavaram", image: "https://source.unsplash.com/600x400/?annavaram,city" },
-  { name: "Pithapuram", image: "https://source.unsplash.com/600x400/?pithapuram,city" },
-  { name: "Samarlakota", image: "https://source.unsplash.com/600x400/?samarlakota,city" },
-  { name: "Kovvur", image: "https://source.unsplash.com/600x400/?kovvur,city" },
-  { name: "Nidadavolu", image: "https://source.unsplash.com/600x400/?nidadavolu,city" },
-  { name: "Undi", image: "https://source.unsplash.com/600x400/?undi,city" },
+  { name: "Amalapuram", image: AmalapuramImg },
+  { name: "Kakinada", image: KakinadaImg },
+  { name: "Tuni", image: TuniImg },
+  { name: "Annavaram", image: AnnavaramImg },
+  { name: "Pithapuram", image: PithapuramImg },
+  
 ];
 
 // Generate SEO keywords

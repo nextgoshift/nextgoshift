@@ -1,32 +1,111 @@
-import React from "react";
+// src/pages/locations/CityPage.jsx
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import heroImage from "../../assets/hero1.jpeg"; // ✅ Fixed hero image
 
-// ✅ City-specific data
+// ✅ City-specific data (text only now)
 const cityData = {
   hyderabad: {
     title: "Packers and Movers in Hyderabad",
-    description: "Safe, reliable, and affordable relocation services in Hyderabad. Household shifting, office relocation, and vehicle transport made easy.",
-    image: "https://source.unsplash.com/1200x630/?hyderabad,city",
+    description:
+      "NextGoShift offers reliable and affordable packers and movers services in Hyderabad. Our expert team ensures safe packing, loading, and delivery for household, office, and vehicle relocation across the city and beyond.",
+    image: heroImage,
   },
   vijayawada: {
     title: "Packers and Movers in Vijayawada",
-    description: "Trusted Packers and Movers in Vijayawada for homes, offices, and vehicles. Stress-free relocation guaranteed.",
-    image: "https://source.unsplash.com/1200x630/?vijayawada,city",
+    description:
+      "Hire the best packers and movers in Vijayawada with NextGoShift. We provide end-to-end relocation services, including packing, transport, and unpacking, ensuring a stress-free moving experience.",
+    image: heroImage,
   },
   visakhapatnam: {
     title: "Packers and Movers in Visakhapatnam",
-    description: "Top-notch relocation services in Visakhapatnam. Household, office, and vehicle shifting with care and efficiency.",
-    image: "https://source.unsplash.com/1200x630/?visakhapatnam,city",
+    description:
+      "NextGoShift provides trusted relocation services in Visakhapatnam. Whether local or intercity, our skilled movers guarantee safe handling and timely delivery of your belongings.",
+    image: heroImage,
   },
   rajahmundry: {
     title: "Packers and Movers in Rajahmundry",
-    description: "Next Go Shift Packers and Movers in Rajahmundry - Safe, affordable, and reliable relocation services including household shifting, office relocation, and vehicle transport.",
-    image: "https://source.unsplash.com/1200x630/?rajahmundry,bridge",
+    description:
+      "Looking for movers in Rajahmundry? NextGoShift ensures secure packing, quick transportation, and smooth relocation at affordable prices for homes and offices.",
+    image: heroImage,
+  },
+  eluru: {
+    title: "Packers and Movers in Eluru",
+    description:
+      "NextGoShift offers professional packers and movers services in Eluru, handling all types of relocations with utmost care and efficiency.",
+    image: heroImage,
+  },
+  tadepalligudem: {
+    title: "Packers and Movers in Tadepalligudem",
+    description:
+      "Relocate easily with NextGoShift packers and movers in Tadepalligudem. We specialize in safe shifting of household goods, vehicles, and office equipment.",
+    image: heroImage,
+  },
+  tanuku: {
+    title: "Packers and Movers in Tanuku",
+    description:
+      "NextGoShift makes relocation in Tanuku simple and secure. From packing to delivery, our team ensures your goods reach safely and on time.",
+    image: heroImage,
+  },
+  bhimavaram: {
+    title: "Packers and Movers in Bhimavaram",
+    description:
+      "Need trusted movers in Bhimavaram? NextGoShift provides comprehensive relocation services for homes, offices, and vehicles at competitive rates.",
+    image: heroImage,
+  },
+  palakollu: {
+    title: "Packers and Movers in Palakollu",
+    description:
+      "NextGoShift delivers reliable packers and movers services in Palakollu, ensuring safe handling and efficient transport for all your shifting needs.",
+    image: heroImage,
+  },
+  narsapuram: {
+    title: "Packers and Movers in Narsapuram",
+    description:
+      "Shift effortlessly with NextGoShift packers and movers in Narsapuram. We handle everything from packing to safe delivery with professionalism.",
+    image: heroImage,
+  },
+  jangareddygudem: {
+    title: "Packers and Movers in Jangareddygudem",
+    description:
+      "NextGoShift provides top-rated relocation services in Jangareddygudem with skilled staff, quality packing materials, and timely delivery.",
+    image: heroImage,
+  },
+  amalapuram: {
+    title: "Packers and Movers in Amalapuram",
+    description:
+      "NextGoShift ensures hassle-free relocation in Amalapuram with safe packing, quick loading, and secure delivery of your belongings.",
+    image: heroImage,
+  },
+  kakinada: {
+    title: "Packers and Movers in Kakinada",
+    description:
+      "Experience smooth and safe relocation in Kakinada with NextGoShift. We offer door-to-door packing and moving solutions at affordable prices.",
+    image: heroImage,
+  },
+  tuni: {
+    title: "Packers and Movers in Tuni",
+    description:
+      "NextGoShift offers expert packers and movers services in Tuni, providing efficient local and intercity relocation solutions for homes and offices.",
+    image: heroImage,
+  },
+  annavaram: {
+    title: "Packers and Movers in Annavaram",
+    description:
+      "NextGoShift is your trusted relocation partner in Annavaram. Our trained team handles packing, moving, and unloading with complete care.",
+    image: heroImage,
+  },
+  pithapuram: {
+    title: "Packers and Movers in Pithapuram",
+    description:
+      "NextGoShift provides reliable moving services in Pithapuram for all types of relocations—household, commercial, and vehicle transport.",
+    image: heroImage,
   },
 };
 
-// ✅ Services
+
+// ✅ Services list
 const services = [
   { name: "Household Shifting", emoji: "🏠" },
   { name: "Office Relocation", emoji: "🏢" },
@@ -36,7 +115,7 @@ const services = [
   { name: "Warehousing", emoji: "🏬" },
 ];
 
-// ✅ Why choose us
+// ✅ Why choose us reasons
 const reasons = [
   "10+ years of experience in Packers & Movers",
   "Best packing materials for complete safety",
@@ -49,16 +128,20 @@ const reasons = [
 const CityPage = () => {
   const { city } = useParams();
 
-  // ✅ Capitalize multi-word city names
+  // ✅ Scroll to top when city changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [city]);
+
+  // ✅ Format city name
   const cityName = city
     .split("-")
-    .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
     .join(" ");
 
   const cityInfo = cityData[city.toLowerCase()] || {
     title: `${cityName} Packers and Movers`,
     description: `Reliable Packers and Movers in ${cityName}. Contact us for safe and affordable relocation.`,
-    image: "https://source.unsplash.com/1200x630/?city,relocation",
   };
 
   const cityKeywords = [
@@ -71,60 +154,175 @@ const CityPage = () => {
     `Affordable packers ${cityName}`,
   ].join(", ");
 
+  // ✅ Web3Forms submit handler
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const result = await response.json();
+    if (result.success) {
+      alert("✅ Message sent successfully!");
+      e.target.reset();
+    } else {
+      alert("❌ Something went wrong. Please try again.");
+    }
+  };
+
   return (
-    <div className="font-sans flex flex-col min-h-screen">
+    <div className="font-sans flex flex-col min-h-screen bg-gray-50">
       <Helmet>
         <title>{`${cityInfo.title} | Next Go Shift`}</title>
         <meta name="description" content={cityInfo.description} />
         <meta name="keywords" content={cityKeywords} />
         <meta property="og:title" content={cityInfo.title} />
         <meta property="og:description" content={cityInfo.description} />
+        <meta property="og:image" content={heroImage} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content={cityInfo.image} />
+        <link
+          rel="canonical"
+          href={`https://nextgoshift.in/packers-and-movers/${city}`}
+        />
       </Helmet>
 
       <main className="flex-grow">
-        {/* Hero Section */}
-        <section className="relative bg-blue-900 text-white py-20 px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">{cityInfo.title}</h1>
+        {/* ✅ Hero Section with Fixed Image */}
+        <section
+          className="relative text-white py-20 px-6 text-center bg-cover bg-center"
+          style={{
+            backgroundImage: `linear-gradient(rgba(10,10,40,0.7), rgba(10,10,40,0.7)), url(${heroImage})`,
+          }}
+        >
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            {cityInfo.title}
+          </h1>
           <p className="text-lg max-w-3xl mx-auto">{cityInfo.description}</p>
         </section>
 
-        {/* Services Section */}
+        {/* ✅ Services Section */}
         <section className="bg-white py-16 px-6">
           <h2 className="text-3xl font-bold text-blue-900 text-center mb-10">
             Our Services in {cityName}
           </h2>
           <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 max-w-7xl mx-auto">
             {services.map((service, index) => (
-              <div key={index} className="bg-gray-100 rounded-xl p-6 shadow hover:shadow-lg transition text-center">
+              <div
+                key={index}
+                className="bg-gray-100 rounded-xl p-6 shadow hover:shadow-lg hover:-translate-y-1 transition transform text-center"
+              >
                 <div className="text-4xl mb-3">{service.emoji}</div>
-                <h3 className="text-xl font-semibold text-blue-800">{service.name}</h3>
+                <h3 className="text-xl font-semibold text-blue-800">
+                  {service.name}
+                </h3>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Why Choose Us */}
+        {/* ✅ Why Choose Us */}
         <section className="bg-gray-50 py-16 px-6 text-center">
-          <h2 className="text-3xl font-bold text-purple-800 mb-10">Why Choose Us</h2>
+          <h2 className="text-3xl font-bold text-purple-800 mb-10">
+            Why Choose Us
+          </h2>
           <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 max-w-5xl mx-auto">
             {reasons.map((reason, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition border-l-4 border-orange-500 text-left">
-                <h3 className="text-purple-800 font-semibold">{index + 1}. {reason}</h3>
+              <div
+                key={index}
+                className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition border-l-4 border-orange-500 text-left"
+              >
+                <h3 className="text-purple-800 font-semibold">
+                  {index + 1}. {reason}
+                </h3>
               </div>
             ))}
           </div>
         </section>
 
-        {/* CTA */}
+        {/* ✅ CTA Section */}
         <section className="bg-orange-500 text-white py-12 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Want to book a move in {cityName}?
           </h2>
-          <a href="tel:+918790140046" className="bg-white text-orange-600 font-semibold px-6 py-3 rounded-lg shadow hover:bg-gray-100 transition">
+          <a
+            href="tel:+918790140046"
+            className="bg-white text-orange-600 font-semibold px-6 py-3 rounded-lg shadow hover:bg-gray-100 transition"
+          >
             📞 Call Us Now
           </a>
+        </section>
+
+        {/* ✅ Contact Section */}
+        <section className="bg-white py-16 px-6">
+          <div className="max-w-6xl mx-auto grid gap-10 md:grid-cols-2">
+            {/* Contact Info */}
+            <div>
+              <h2 className="text-2xl font-bold text-purple-800 mb-4">
+                Get in Touch
+              </h2>
+              <p className="text-gray-700 mb-4">
+                Our support team is available 24/7 to help with your shifting
+                needs.
+              </p>
+              <ul className="space-y-3 text-gray-700">
+                <li>
+                  📍 Tadepalligudem 534101, West Godavari, Andhra Pradesh, India
+                </li>
+                <li>📞 +91 8790140046</li>
+                <li>✉️ simhalion899@gmail.com</li>
+              </ul>
+              <a
+                href="tel:+918790140046"
+                className="inline-block mt-6 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold shadow transition"
+              >
+                📞 Call Us Now
+              </a>
+            </div>
+
+            {/* Contact Form */}
+            <div>
+              <h2 className="text-2xl font-bold text-purple-800 mb-4">
+                Send a Message
+              </h2>
+              <form className="space-y-4" onSubmit={handleSubmit}>
+                <input
+                  type="hidden"
+                  name="access_key"
+                  value="YOUR_WEB3FORMS_ACCESS_KEY"
+                />
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  required
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  required
+                />
+                <textarea
+                  name="message"
+                  placeholder="Your Message"
+                  rows="5"
+                  className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  required
+                ></textarea>
+                <button
+                  type="submit"
+                  className="w-full bg-blue-900 hover:bg-blue-800 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition"
+                >
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
         </section>
       </main>
     </div>
