@@ -1,0 +1,20 @@
+name = "nextgoshift"                    # Your project name
+main = "dist/index.js"                   # Entry point (Vite build output)
+compatibility_date = "2025-10-06"
+type = "javascript"                      # Worker type
+
+
+
+[build]
+command = "npm run build"                # Vite build command
+upload.format = "service-worker"         # Upload as a service worker
+upload.dir = "dist"                      # Vite outputs production build here
+
+[site]                                   # Optional: for full SPA deployment
+bucket = "./dist"
+entry-point = "workers-site"
+
+# Optional environment for production domain
+# [env.production]
+# route = "https://nextgoshift.com/*"
+# zone_id = "your_zone_id_here"
