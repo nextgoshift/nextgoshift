@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+
+/* Reset default margin/padding */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-width: 100vw;   /* full width */
+  min-height: 100vh;  /* full height if content is short */
+  overflow-x: hidden; /* prevent horizontal scroll */
+  background-color: #fff; /* optional default background */
+  scroll-behavior: auto;   /* disable smooth scroll to avoid conflicts */
+}
+
+/* Optional: ensure body content grows naturally */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
