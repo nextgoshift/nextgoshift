@@ -1,8 +1,8 @@
 // src/pages/Home.jsx
 import React from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom"; // ✅ Import useNavigate
 import heroImage from "../assets/hero1.jpeg";
-
 
 // Animation Variants
 const staggerContainer = {
@@ -41,6 +41,8 @@ const reasons = [
 ];
 
 export default function HomePage() {
+  const navigate = useNavigate(); // ✅ Initialize navigate
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -73,7 +75,6 @@ export default function HomePage() {
 
   return (
     <div className="font-sans flex flex-col min-h-screen bg-gray-50">
-     
       <main className="flex-grow">
         {/* Hero Section */}
         <section
@@ -114,6 +115,43 @@ export default function HomePage() {
             >
               Get Free Quote
             </motion.a>
+          </motion.div>
+        </section>
+
+        {/* Location Section */}
+        <section className="bg-gray-100 py-16 px-6 text-center">
+          <h2 className="text-3xl font-bold text-blue-900 mb-8">Our Location</h2>
+          <p className="text-gray-700 max-w-2xl mx-auto mb-10">
+            We proudly serve customers all across Andhra Pradesh and nearby cities, delivering smooth and
+            stress-free shifting services wherever you need.
+          </p>
+
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="flex flex-col sm:flex-row justify-center gap-8 max-w-4xl mx-auto"
+          >
+            {/* State Card */}
+            <motion.div
+              variants={fadeUp}
+              whileHover={{ scale: 1.05 }}
+              className="flex-1 bg-white rounded-xl shadow-lg p-6 border-t-4 border-orange-500 cursor-pointer"
+              onClick={() => navigate("/locations")}
+            >
+              <h3 className="text-xl font-semibold text-blue-800 mb-2">State</h3>
+            </motion.div>
+
+            {/* City Card */}
+            <motion.div
+              variants={fadeUp}
+              whileHover={{ scale: 1.05 }}
+              className="flex-1 bg-white rounded-xl shadow-lg p-6 border-t-4 border-purple-600 cursor-pointer"
+              onClick={() => navigate("/locations")}
+            >
+              <h3 className="text-xl font-semibold text-blue-800 mb-2">City</h3>
+            </motion.div>
           </motion.div>
         </section>
 
@@ -275,7 +313,23 @@ export default function HomePage() {
         </section>
       </main>
 
-    
+      {/* Floating WhatsApp Button */}
+      <a
+        href="https://wa.me/918790140046"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-5 right-5 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 z-50 flex items-center justify-center"
+        aria-label="Chat on WhatsApp"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+          className="w-6 h-6"
+        >
+          <path d="M20.52 3.48A11.93 11.93 0 0012 0C5.37 0 .01 5.37.01 12c0 2.11.55 4.17 1.6 5.99L0 24l6.2-1.61A11.94 11.94 0 0012 24c6.63 0 12-5.37 12-12 0-3.19-1.25-6.19-3.48-8.52zM12 22.02c-1.95 0-3.86-.52-5.53-1.52l-.4-.24-3.68.96.98-3.58-.26-.37A9.9 9.9 0 012.02 12C2.02 6.49 6.49 2.02 12 2.02S21.98 6.49 21.98 12 17.51 22.02 12 22.02zm5.32-7.46c-.29-.15-1.7-.84-1.96-.94-.26-.1-.45-.15-.64.15-.19.29-.74.94-.9 1.13-.17.19-.34.21-.63.07-.29-.15-1.22-.45-2.33-1.43-.86-.77-1.44-1.72-1.6-2.01-.17-.29-.02-.45.13-.6.14-.14.29-.34.44-.51.15-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.15-.64-1.53-.88-2.1-.23-.55-.46-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 1-1 2.43s1.02 2.82 1.17 3.02c.15.19 2 3.06 4.84 4.29.68.29 1.21.46 1.62.59.68.21 1.3.18 1.79.11.55-.08 1.7-.7 1.94-1.37.24-.67.24-1.25.17-1.37-.06-.13-.26-.21-.55-.36z" />
+        </svg>
+      </a>
     </div>
   );
 }
