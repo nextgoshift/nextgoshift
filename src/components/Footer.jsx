@@ -11,7 +11,7 @@ export default function Footer() {
           <h4 className="text-lg font-semibold text-orange-400 mb-4">Contact</h4>
           <ul className="space-y-2 text-gray-300">
             <li>📍 Tadepalligudem 534101, West Godavari, Andhra Pradesh, India</li>
-            <li>📞 +91 8790140046</li>
+            <li>📞 +91 9666465890</li>
             <li>✉️ simhalion899@gmail.com</li>
           </ul>
         </div>
@@ -42,7 +42,7 @@ export default function Footer() {
             <a href="https://instagram.com/nextgoshift" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-orange-400 text-2xl transition-colors">
               <FaInstagram />
             </a>
-            <a href="https://wa.me/918790140046" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-orange-400 text-2xl transition-colors">
+            <a href="https://wa.me/919666465880" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-orange-400 text-2xl transition-colors">
               <FaWhatsapp />
             </a>
             <a href="https://www.linkedin.com/in/narasimha-gunje/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-orange-400 text-2xl transition-colors">

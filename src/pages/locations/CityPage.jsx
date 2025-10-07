@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import heroImage from "../../assets/hero1.jpeg"; // ✅ Fixed hero image
 
+
 // ✅ City-specific data (text only now)
 const cityData = {
   hyderabad: {
@@ -248,7 +249,7 @@ const CityPage = () => {
             Want to book a move in {cityName}?
           </h2>
           <a
-            href="tel:+918790140046"
+            href="tel:+919666465890"
             className="bg-white text-orange-600 font-semibold px-6 py-3 rounded-lg shadow hover:bg-gray-100 transition"
           >
             📞 Call Us Now
@@ -271,11 +272,11 @@ const CityPage = () => {
                 <li>
                   📍 Tadepalligudem 534101, West Godavari, Andhra Pradesh, India
                 </li>
-                <li>📞 +91 8790140046</li>
+                <li>📞 +91 9666465890</li>
                 <li>✉️ simhalion899@gmail.com</li>
               </ul>
               <a
-                href="tel:+918790140046"
+                href="tel:+919666465890"
                 className="inline-block mt-6 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold shadow transition"
               >
                 📞 Call Us Now
@@ -325,6 +326,40 @@ const CityPage = () => {
           </div>
         </section>
       </main>
+            {/* Floating Call Button */}
+      <a
+        href="tel:+919666465890"
+        className="fixed bottom-20 right-5 bg-blue-900 text-white p-4 rounded-full shadow-lg hover:bg-blue-800 transition-all duration-300 z-50 flex items-center justify-center animate-bounce"
+        aria-label="Call Now"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+          className="w-6 h-6"
+        >
+          <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21c1.21.48 2.53.74 3.88.74a1 1 0 011 1v3.5a1 1 0 01-1 1C10.07 22 2 13.93 2 4.5a1 1 0 011-1H6.5a1 1 0 011 1c0 1.35.25 2.67.74 3.88a1 1 0 01-.21 1.11l-2.2 2.2z" />
+        </svg>
+      </a>
+
+      {/* Floating WhatsApp Button */}
+      <a
+        href="https://wa.me/919666465880"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-5 right-5 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 z-50 flex items-center justify-center animate-bounce"
+        aria-label="Chat on WhatsApp"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+          className="w-6 h-6"
+        >
+          <path d="M20.52 3.48A11.93 11.93 0 0012 0C5.37 0 .01 5.37.01 12c0 2.11.55 4.17 1.6 5.99L0 24l6.2-1.61A11.94 11.94 0 0012 24c6.63 0 12-5.37 12-12 0-3.19-1.25-6.19-3.48-8.52zM12 22.02c-1.95 0-3.86-.52-5.53-1.52l-.4-.24-3.68.96.98-3.58-.26-.37A9.9 9.9 0 012.02 12C2.02 6.49 6.49 2.02 12 2.02S21.98 6.49 21.98 12 17.51 22.02 12 22.02zm5.32-7.46c-.29-.15-1.7-.84-1.96-.94-.26-.1-.45-.15-.64.15-.19.29-.74.94-.9 1.13-.17.19-.34.21-.63.07-.29-.15-1.22-.45-2.33-1.43-.86-.77-1.44-1.72-1.6-2.01-.17-.29-.02-.45.13-.6.14-.14.29-.34.44-.51.15-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.15-.64-1.53-.88-2.1-.23-.55-.46-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 1-1 2.43s1.02 2.82 1.17 3.02c.15.19 2 3.06 4.84 4.29.68.29 1.21.46 1.62.59.68.21 1.3.18 1.79.11.55-.08 1.7-.7 1.94-1.37.24-.67.24-1.25.17-1.37-.06-.13-.26-.21-.55-.36z" />
+        </svg>
+      </a>
+
     </div>
   );
 };
