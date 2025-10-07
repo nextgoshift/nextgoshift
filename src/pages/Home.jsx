@@ -1,8 +1,8 @@
 // src/pages/Home.jsx
 import React from "react";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom"; // ✅ Import useNavigate
-import heroImage from "../assets/hero1.jpeg";
+import { useNavigate } from "react-router-dom";
+import heroImage from "../assets/hero1.webp"; // Optimized WebP image
 
 // Animation Variants
 const staggerContainer = {
@@ -41,7 +41,7 @@ const reasons = [
 ];
 
 export default function HomePage() {
-  const navigate = useNavigate(); // ✅ Initialize navigate
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -79,14 +79,15 @@ export default function HomePage() {
         {/* Hero Section */}
         <section
           className="relative text-white text-center px-6 min-h-[80vh] flex items-center justify-center"
-          style={{
-            backgroundImage: `url(${heroImage})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-          }}
           aria-label="Hero Section"
         >
+          {/* LCP Image */}
+          <img
+            src={heroImage}
+            alt="Safe & Stress-Free Relocations"
+            className="absolute inset-0 w-full h-full object-cover"
+            fetchpriority="high"
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60"></div>
 
           <motion.div
@@ -111,6 +112,7 @@ export default function HomePage() {
             <motion.a
               variants={buttonAnim}
               href="/contact"
+              aria-label="Get Free Quote"
               className="inline-block bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition"
             >
               Get Free Quote
@@ -139,6 +141,7 @@ export default function HomePage() {
               whileHover={{ scale: 1.05 }}
               className="flex-1 bg-white rounded-xl shadow-lg p-6 border-t-4 border-orange-500 cursor-pointer"
               onClick={() => navigate("/locations")}
+              aria-label="View State Locations"
             >
               <h3 className="text-xl font-semibold text-blue-800 mb-2">State</h3>
             </motion.div>
@@ -149,6 +152,7 @@ export default function HomePage() {
               whileHover={{ scale: 1.05 }}
               className="flex-1 bg-white rounded-xl shadow-lg p-6 border-t-4 border-purple-600 cursor-pointer"
               onClick={() => navigate("/locations")}
+              aria-label="View City Locations"
             >
               <h3 className="text-xl font-semibold text-blue-800 mb-2">City</h3>
             </motion.div>
@@ -247,6 +251,7 @@ export default function HomePage() {
             <motion.a
               variants={buttonAnim}
               href="tel:+919666465890"
+              aria-label="Call Now"
               className="inline-block bg-blue-900 hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition"
             >
               📞 Call Us Now
@@ -271,6 +276,7 @@ export default function HomePage() {
               <a
                 href="tel:+919666465890"
                 className="inline-block mt-6 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold shadow transition"
+                aria-label="Call Now"
               >
                 📞 Call Us Now
               </a>
@@ -286,6 +292,7 @@ export default function HomePage() {
                   placeholder="Your Name"
                   className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
                   required
+                  aria-label="Your Name"
                 />
                 <input
                   type="email"
@@ -293,6 +300,7 @@ export default function HomePage() {
                   placeholder="Your Email"
                   className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
                   required
+                  aria-label="Your Email"
                 />
                 <textarea
                   name="message"
@@ -300,10 +308,12 @@ export default function HomePage() {
                   rows="5"
                   className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
                   required
+                  aria-label="Your Message"
                 ></textarea>
                 <button
                   type="submit"
                   className="w-full bg-blue-900 hover:bg-blue-800 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition"
+                  aria-label="Send Message"
                 >
                   Send Message
                 </button>
@@ -313,48 +323,47 @@ export default function HomePage() {
         </section>
       </main>
 
-     {/* Floating Call Button */}
-<a
-  href="tel:+9189666465890"
-  className="fixed bottom-24 right-5 bg-blue-900 text-white p-4 rounded-full shadow-xl 
-             hover:bg-blue-800 transition-all duration-300 z-50 flex items-center justify-center 
-             animate-[pulse_2s_infinite] hover:scale-110"
-  aria-label="Call Now"
->
-  <motion.svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="currentColor"
-    viewBox="0 0 24 24"
-    className="w-6 h-6"
-    animate={{ rotate: [0, 10, -10, 0] }}
-    transition={{ duration: 1.2, repeat: Infinity, repeatDelay: 2 }}
-  >
-    <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21c1.21.48 2.53.74 3.88.74a1 1 0 011 1v3.5a1 1 0 01-1 1C10.07 22 2 13.93 2 4.5a1 1 0 011-1H6.5a1 1 0 011 1c0 1.35.25 2.67.74 3.88a1 1 0 01-.21 1.11l-2.2 2.2z" />
-  </motion.svg>
-</a>
+      {/* Floating Call Button */}
+      <a
+        href="tel:+9189666465890"
+        className="fixed bottom-24 right-5 bg-blue-900 text-white p-4 rounded-full shadow-xl 
+                   hover:bg-blue-800 transition-all duration-300 z-50 flex items-center justify-center 
+                   animate-[pulse_2s_infinite] hover:scale-110"
+        aria-label="Call Now"
+      >
+        <motion.svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+          className="w-6 h-6"
+          animate={{ rotate: [0, 10, -10, 0] }}
+          transition={{ duration: 1.2, repeat: Infinity, repeatDelay: 2 }}
+        >
+          <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21c1.21.48 2.53.74 3.88.74a1 1 0 011 1v3.5a1 1 0 01-1 1C10.07 22 2 13.93 2 4.5a1 1 0 011-1H6.5a1 1 0 011 1c0 1.35.25 2.67.74 3.88a1 1 0 01-.21 1.11l-2.2 2.2z" />
+        </motion.svg>
+      </a>
 
-{/* Floating WhatsApp Button */}
-<a
-  href="https://wa.me/919666465880"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="fixed bottom-5 right-5 bg-green-500 text-white p-4 rounded-full shadow-xl 
-             hover:bg-green-600 transition-all duration-300 z-50 flex items-center justify-center 
-             animate-[bounce_2s_infinite] hover:scale-110"
-  aria-label="Chat on WhatsApp"
->
-  <motion.svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="currentColor"
-    viewBox="0 0 24 24"
-    className="w-6 h-6"
-    animate={{ rotate: [0, -15, 15, 0] }}
-    transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 3 }}
-  >
-    <path d="M20.52 3.48A11.93 11.93 0 0012 0C5.37 0 .01 5.37.01 12c0 2.11.55 4.17 1.6 5.99L0 24l6.2-1.61A11.94 11.94 0 0012 24c6.63 0 12-5.37 12-12 0-3.19-1.25-6.19-3.48-8.52zM12 22.02c-1.95 0-3.86-.52-5.53-1.52l-.4-.24-3.68.96.98-3.58-.26-.37A9.9 9.9 0 012.02 12C2.02 6.49 6.49 2.02 12 2.02S21.98 6.49 21.98 12 17.51 22.02 12 22.02zm5.32-7.46c-.29-.15-1.7-.84-1.96-.94-.26-.1-.45-.15-.64.15-.19.29-.74.94-.9 1.13-.17.19-.34.21-.63.07-.29-.15-1.22-.45-2.33-1.43-.86-.77-1.44-1.72-1.6-2.01-.17-.29-.02-.45.13-.6.14-.14.29-.34.44-.51.15-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.15-.64-1.53-.88-2.1-.23-.55-.46-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 1-1 2.43s1.02 2.82 1.17 3.02c.15.19 2 3.06 4.84 4.29.68.29 1.21.46 1.62.59.68.21 1.3.18 1.79.11.55-.08 1.7-.7 1.94-1.37.24-.67.24-1.25.17-1.37-.06-.13-.26-.21-.55-.36z" />
-  </motion.svg>
-</a>
-
+      {/* Floating WhatsApp Button */}
+      <a
+        href="https://wa.me/919666465880"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-5 right-5 bg-green-500 text-white p-4 rounded-full shadow-xl 
+                   hover:bg-green-600 transition-all duration-300 z-50 flex items-center justify-center 
+                   animate-[bounce_2s_infinite] hover:scale-110"
+        aria-label="Chat on WhatsApp"
+      >
+        <motion.svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+          className="w-6 h-6"
+          animate={{ rotate: [0, -15, 15, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 3 }}
+        >
+          <path d="M20.52 3.48A11.93 11.93 0 0012 0C5.37 0 .01 5.37.01 12c0 2.11.55 4.17 1.6 5.99L0 24l6.2-1.61A11.94 11.94 0 0012 24c6.63 0 12-5.37 12-12 0-3.19-1.25-6.19-3.48-8.52zM12 22.02c-1.95 0-3.86-.52-5.53-1.52l-.4-.24-3.68.96.98-3.58-.26-.37A9.9 9.9 0 012.02 12C2.02 6.49 6.49 2.02 12 2.02S21.98 6.49 21.98 12 17.51 22.02 12 22.02zm5.32-7.46c-.29-.15-1.7-.84-1.96-.94-.26-.1-.45-.15-.64.15-.19.29-.74.94-.9 1.13-.17.19-.34.21-.63.07-.29-.15-1.22-.45-2.33-1.43-.86-.77-1.44-1.72-1.6-2.01-.17-.29-.02-.45.13-.6.14-.14.29-.34.44-.51.15-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.15-.64-1.53-.88-2.1-.23-.55-.46-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 1-1 2.43s1.02 2.82 1.17 3.02c.15.19 2 3.06 4.84 4.29.68.29 1.21.46 1.62.59.68.21 1.3.18 1.79.11.55-.08 1.7-.7 1.94-1.37.24-.67.24-1.25.17-1.37-.06-.13-.26-.21-.55-.36z" />
+        </motion.svg>
+      </a>
     </div>
   );
 }

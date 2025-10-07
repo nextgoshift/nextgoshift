@@ -1,0 +1,22 @@
+# robots.txt for NextGoShift
+# Website: https://nextgoshift.com
+# Managed manually (not by Cloudflare)
+
+User-agent: *
+Allow: /
+
+# Sitemap for faster indexing
+Sitemap: https://nextgoshift.com/sitemap.xml
+
+# Crawl delay (optional - prevents overloading)
+Crawl-delay: 5
+
+# AI content signals (Cloudflare compatible)
+# Content-signal: search=yes, ai-train=no
+
+# Block admin or internal routes (if any)
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /api
+
+# Thank you for visiting NextGoShift!
