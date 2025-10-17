@@ -2,8 +2,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import heroImage from "../assets/hero1.webp"; // Optimized WebP
-import logoImage from "../assets/logo.webp"; // Next-gen logo
+import hero480 from "../assets/hero1-480.webp";
+import hero768 from "../assets/hero1-768.webp";
+import hero1024 from "../assets/hero1-1024.webp";
+
 
 // Animation Variants
 const staggerContainer = {
@@ -76,8 +78,6 @@ export default function HomePage() {
 
   return (
     <div className="font-sans flex flex-col min-h-screen bg-gray-50">
-      <link rel="preload" as="image" href={heroImage} />
-
       <main className="flex-grow">
         {/* Hero Section */}
         <section
@@ -85,13 +85,16 @@ export default function HomePage() {
           aria-label="Hero Section"
         >
           <img
-            src={heroImage}
-            alt="Safe & Stress-Free Relocations"
-            className="absolute inset-0 w-full h-full object-cover"
-            width={1920}
-            height={1080}
-            fetchpriority="high"
-          />
+  src={hero1024}
+  srcSet={`${hero480} 480w, ${hero768} 768w, ${hero1024} 1024w`}
+  sizes="(max-width: 768px) 100vw, 1024px"
+  alt="Safe & Stress-Free Relocations"
+  className="absolute inset-0 w-full h-full object-cover"
+  width={1024}
+  height={576}
+  fetchpriority="high"
+/>
+
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60"></div>
 
           <motion.div
