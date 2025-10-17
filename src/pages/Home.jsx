@@ -76,7 +76,6 @@ export default function HomePage() {
 
   return (
     <div className="font-sans flex flex-col min-h-screen bg-gray-50">
-      {/* Preload LCP image */}
       <link rel="preload" as="image" href={heroImage} />
 
       <main className="flex-grow">
@@ -106,7 +105,7 @@ export default function HomePage() {
               className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg"
             >
               Safe & Stress-Free Relocations with <br />
-              <span className="text-orange-400 drop-shadow-lg">Next Go Shift</span>
+              <span className="text-orange-500 drop-shadow-lg">Next Go Shift</span>
             </motion.h1>
             <motion.p
               variants={fadeUp}
@@ -255,6 +254,7 @@ export default function HomePage() {
                 <input
                   type="text"
                   name="name"
+                  id="name"
                   placeholder="Your Name"
                   autoComplete="name"
                   className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
@@ -264,6 +264,7 @@ export default function HomePage() {
                 <input
                   type="email"
                   name="email"
+                  id="email"
                   placeholder="Your Email"
                   autoComplete="email"
                   className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
@@ -272,6 +273,7 @@ export default function HomePage() {
                 />
                 <textarea
                   name="message"
+                  id="message"
                   placeholder="Your Message"
                   rows="5"
                   autoComplete="off"
