@@ -80,52 +80,53 @@ export default function HomePage() {
     <div className="font-sans flex flex-col min-h-screen bg-gray-50">
       <main className="flex-grow">
         {/* Hero Section */}
-        <section
-          className="relative text-white text-center px-6 min-h-[80vh] flex items-center justify-center"
-          aria-label="Hero Section"
-        >
+        {/* Hero Section */}
+<section
+  className="relative text-white text-center px-6 min-h-[80vh] flex items-center justify-center"
+  aria-label="Hero Section"
+>
           <img
-  src={hero1024}
-  srcSet={`${hero480} 480w, ${hero768} 768w, ${hero1024} 1024w`}
-  sizes="(max-width: 768px) 100vw, 1024px"
-  alt="Safe & Stress-Free Relocations"
-  className="absolute inset-0 w-full h-full object-cover"
-  width={1024}
-  height={576}
-  fetchpriority="high"
-/>
+            src={hero1024}
+            srcSet={`${hero480} 480w, ${hero768} 768w, ${hero1024} 1024w`}
+            sizes="(max-width: 768px) 100vw, 1024px"
+            alt="Safe & Stress-Free Relocations"
+            className="absolute inset-0 w-full h-full object-cover"
+            width={1024}
+            height={576}
+            fetchpriority="high"
+          />
 
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60"></div>
+           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70"></div>
 
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            animate="visible"
-            className="relative z-10 max-w-3xl mx-auto"
-          >
-            <motion.h1
-              variants={fadeUp}
-              className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg"
-            >
-              Safe & Stress-Free Relocations with <br />
-              <span className="text-orange-500 drop-shadow-lg">Next Go Shift</span>
-            </motion.h1>
-            <motion.p
-              variants={fadeUp}
-              className="text-lg max-w-2xl mx-auto mb-6 drop-shadow-md text-gray-100"
-            >
-              10+ years of trusted experience in local and national packing & moving services across India.
-            </motion.p>
-            <motion.a
-              variants={buttonAnim}
-              href="/contact"
-              aria-label="Get Free Quote"
-              className="inline-block bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition"
-            >
-              Get Free Quote
-            </motion.a>
-          </motion.div>
-        </section>
+  <motion.div
+    variants={staggerContainer}
+    initial="hidden"
+    animate="visible"
+    className="relative z-10 max-w-3xl mx-auto"
+  >
+    <motion.h1
+      variants={fadeUp}
+      className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg"
+    >
+      Safe & Stress-Free Relocations with <br />
+      <span className="text-orange-300 drop-shadow-lg">Next Go Shift</span>
+    </motion.h1>
+    <motion.p
+      variants={fadeUp}
+      className="text-lg max-w-2xl mx-auto mb-6 drop-shadow-md text-gray-100"
+    >
+      10+ years of trusted experience in local and national packing & moving services across India.
+    </motion.p>
+    <motion.a
+      variants={buttonAnim}
+      href="/contact"
+      aria-label="Get Free Quote"
+      className="inline-block bg-orange-700 hover:bg-orange-800 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition"
+    >
+      Get Free Quote
+    </motion.a>
+  </motion.div>
+</section>
 
         {/* About Section */}
         <section className="py-16 px-6 max-w-7xl mx-auto text-center">
