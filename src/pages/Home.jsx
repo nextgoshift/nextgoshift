@@ -2,7 +2,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import heroImage from "../assets/hero1.webp"; // Optimized WebP image
+import heroWebP from "../assets/hero1.webp";
+import heroJPG from "../assets/hero1.jpeg"; // fallback JPEG
+import logoWebP from "../assets/logo.webp";
+import logoPNG from "../assets/logo.png";
 
 // Animation Variants
 const staggerContainer = {
@@ -76,18 +79,26 @@ export default function HomePage() {
   return (
     <div className="font-sans flex flex-col min-h-screen bg-gray-50">
       <main className="flex-grow">
+        {/* Preload LCP Image */}
+        <link rel="preload" as="image" href={heroWebP} />
+
         {/* Hero Section */}
         <section
           className="relative text-white text-center px-6 min-h-[80vh] flex items-center justify-center"
           aria-label="Hero Section"
         >
-          {/* LCP Image */}
-          <img
-            src={heroImage}
-            alt="Safe & Stress-Free Relocations"
-            className="absolute inset-0 w-full h-full object-cover"
-            fetchpriority="high"
-          />
+          <picture>
+            <source srcSet={heroWebP} type="image/webp" />
+            <img
+              src={heroJPG}
+              alt="Safe & Stress-Free Relocations"
+              className="absolute inset-0 w-full h-full object-cover"
+              width={1920}
+              height={1080}
+              loading="eager"
+              fetchpriority="high"
+            />
+          </picture>
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60"></div>
 
           <motion.div
@@ -101,21 +112,19 @@ export default function HomePage() {
               className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg"
             >
               Safe & Stress-Free Relocations with <br />
-              <span className="text-orange-500 drop-shadow-lg">Next Go Shift</span>
+              <span className="text-orange-400 drop-shadow-lg">Next Go Shift</span>
             </motion.h1>
             <motion.p
               variants={fadeUp}
               className="text-lg max-w-2xl mx-auto mb-6 drop-shadow-md"
             >
-              10+ years of trusted experience in local and national packing & moving services
-              across India. We provide end-to-end relocation solutions — expert packing,
-              secure transportation, careful loading/unloading, and flexible warehousing.
+              10+ years of trusted experience in local and national packing & moving services across India.
             </motion.p>
             <motion.a
               variants={buttonAnim}
               href="/contact"
-              aria-label="Get a Free Quote"
-              className="inline-block bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition"
+              aria-label="Get Free Quote"
+              className="inline-block bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition"
             >
               Get Free Quote
             </motion.a>
@@ -138,17 +147,13 @@ export default function HomePage() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="text-gray-700 max-w-3xl mx-auto leading-relaxed"
+            className="text-gray-700 max-w-3xl mx-auto"
           >
-            Next Go Shift Packers and Movers was born from a simple idea: moving should be
-            exciting, not exhausting. Founded by Narasimha Gunje, we grew from a small local
-            team into a nationwide relocation partner by focusing on professionalism, care,
-            and clear communication. With over a decade of hands-on experience, we use
-            industry-grade packing materials, trained staff, and modern transport to protect
-            your belongings from door-to-door. Whether you’re shifting a studio or relocating
-            an entire office across states, our promise is the same — punctuality, transparent
-            pricing, and a stress-free experience. We operate across major Indian cities and
-            support customized moving plans, insurance, and short/long-term warehousing.
+            Next Go Shift Packers and Movers is one of the most trusted names in
+            the relocation industry with over a decade of expertise. We
+            specialize in providing complete packing and moving solutions, from
+            local shifting to all-India relocations. Our professional team
+            ensures that every move is handled with precision, safety, and care.
           </motion.p>
         </section>
 
@@ -171,9 +176,7 @@ export default function HomePage() {
                 whileHover={{ scale: 1.05 }}
                 className="bg-gray-100 rounded-xl p-6 shadow hover:shadow-lg transition text-center"
               >
-                <div className="text-4xl mb-3" aria-hidden>
-                  {service.emoji}
-                </div>
+                <div className="text-4xl mb-3">{service.emoji}</div>
                 <h3 className="text-xl font-semibold text-blue-800">{service.name}</h3>
               </motion.div>
             ))}
@@ -197,16 +200,14 @@ export default function HomePage() {
                 whileHover={{ scale: 1.03 }}
                 className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition border-l-4 border-orange-500 text-left"
               >
-                <h3 className="text-purple-800 font-semibold">
-                  {index + 1}. {reason}
-                </h3>
+                <h3 className="text-purple-800 font-semibold">{index + 1}. {reason}</h3>
               </motion.div>
             ))}
           </motion.div>
         </section>
 
         {/* Call to Action */}
-        <section className="bg-orange-600 text-white py-16 text-center px-6">
+        <section className="bg-orange-500 text-white py-16 text-center px-6">
           <motion.div
             variants={staggerContainer}
             initial="hidden"
@@ -222,7 +223,7 @@ export default function HomePage() {
             <motion.a
               variants={buttonAnim}
               href="tel:+919666465890"
-              aria-label="Call Next Go Shift"
+              aria-label="Call Now"
               className="inline-block bg-blue-900 hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition"
             >
               📞 Call Us Now
@@ -246,8 +247,8 @@ export default function HomePage() {
               </ul>
               <a
                 href="tel:+919666465890"
-                className="inline-block mt-6 bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-lg font-semibold shadow transition"
-                aria-label="Call Next Go Shift"
+                className="inline-block mt-6 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold shadow transition"
+                aria-label="Call Now"
               >
                 📞 Call Us Now
               </a>
@@ -261,7 +262,7 @@ export default function HomePage() {
                   type="text"
                   name="name"
                   placeholder="Your Name"
-                  className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-600"
+                  className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
                   required
                   aria-label="Your Name"
                 />
@@ -269,7 +270,7 @@ export default function HomePage() {
                   type="email"
                   name="email"
                   placeholder="Your Email"
-                  className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-600"
+                  className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
                   required
                   aria-label="Your Email"
                 />
@@ -277,7 +278,7 @@ export default function HomePage() {
                   name="message"
                   placeholder="Your Message"
                   rows="5"
-                  className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-600"
+                  className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
                   required
                   aria-label="Your Message"
                 ></textarea>
@@ -296,7 +297,7 @@ export default function HomePage() {
 
       {/* Floating Call Button */}
       <a
-        href="tel:+919666465890"
+        href="tel:+9189666465890"
         className="fixed bottom-24 right-5 bg-blue-900 text-white p-4 rounded-full shadow-xl 
                    hover:bg-blue-800 transition-all duration-300 z-50 flex items-center justify-center 
                    animate-[pulse_2s_infinite] hover:scale-110"
@@ -309,8 +310,6 @@ export default function HomePage() {
           className="w-6 h-6"
           animate={{ rotate: [0, 10, -10, 0] }}
           transition={{ duration: 1.2, repeat: Infinity, repeatDelay: 2 }}
-          role="img"
-          aria-hidden="true"
         >
           <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21c1.21.48 2.53.74 3.88.74a1 1 0 011 1v3.5a1 1 0 01-1 1C10.07 22 2 13.93 2 4.5a1 1 0 011-1H6.5a1 1 0 011 1c0 1.35.25 2.67.74 3.88a1 1 0 01-.21 1.11l-2.2 2.2z" />
         </motion.svg>
@@ -333,8 +332,6 @@ export default function HomePage() {
           className="w-6 h-6"
           animate={{ rotate: [0, -15, 15, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 3 }}
-          role="img"
-          aria-hidden="true"
         >
           <path d="M20.52 3.48A11.93 11.93 0 0012 0C5.37 0 .01 5.37.01 12c0 2.11.55 4.17 1.6 5.99L0 24l6.2-1.61A11.94 11.94 0 0012 24c6.63 0 12-5.37 12-12 0-3.19-1.25-6.19-3.48-8.52zM12 22.02c-1.95 0-3.86-.52-5.53-1.52l-.4-.24-3.68.96.98-3.58-.26-.37A9.9 9.9 0 012.02 12C2.02 6.49 6.49 2.02 12 2.02S21.98 6.49 21.98 12 17.51 22.02 12 22.02zm5.32-7.46c-.29-.15-1.7-.84-1.96-.94-.26-.1-.45-.15-.64.15-.19.29-.74.94-.9 1.13-.17.19-.34.21-.63.07-.29-.15-1.22-.45-2.33-1.43-.86-.77-1.44-1.72-1.6-2.01-.17-.29-.02-.45.13-.6.14-.14.29-.34.44-.51.15-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.15-.64-1.53-.88-2.1-.23-.55-.46-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 1-1 2.43s1.02 2.82 1.17 3.02c.15.19 2 3.06 4.84 4.29.68.29 1.21.46 1.62.59.68.21 1.3.18 1.79.11.55-.08 1.7-.7 1.94-1.37.24-.67.24-1.25.17-1.37-.06-.13-.26-.21-.55-.36z" />
         </motion.svg>
