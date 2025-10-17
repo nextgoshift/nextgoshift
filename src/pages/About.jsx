@@ -1,16 +1,15 @@
+// src/pages/About.jsx
 import React from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import { Helmet } from "react-helmet-async";
 import founderImage from "../assets/founder.jpg";
 
 const benefits = [
-  { icon: "⏳", title: "10+ Years Experience", desc: "Over a decade of expertise in relocation services across India." },
-  { icon: "📦", title: "Safe & Secure Packing", desc: "High-quality packing materials to ensure complete safety of your goods." },
-  { icon: "👷‍♂️", title: "Professional Team", desc: "Trained staff ensures a smooth, stress-free moving experience." },
+  { icon: "⏳", title: "10+ Years Experience", desc: "Over a decade of expertise in packers and movers services across India." },
+  { icon: "📦", title: "Safe & Secure Packing", desc: "High-quality packing materials ensure complete safety of your goods during relocation." },
+  { icon: "👷‍♂️", title: "Professional Team", desc: "Trained staff provides a smooth, stress-free moving experience anywhere in India." },
   { icon: "💰", title: "Affordable Pricing", desc: "Transparent, budget-friendly services with no hidden charges." },
-  { icon: "⏰", title: "On-Time Delivery", desc: "Your goods are delivered safely and on schedule, every time." },
-  { icon: "⭐", title: "Customer Satisfaction", desc: "24/7 support to address all your shifting concerns." },
+  { icon: "⏰", title: "On-Time Delivery", desc: "Goods delivered safely and on schedule, every time." },
+  { icon: "⭐", title: "Customer Satisfaction", desc: "24/7 support to address all your shifting and relocation concerns." },
 ];
 
 const About = () => {
@@ -18,14 +17,16 @@ const About = () => {
     <div className="font-sans flex flex-col min-h-screen bg-gray-50">
       {/* SEO */}
       <Helmet>
-        <title>About Us | Next Go Shift Packers & Movers</title>
+        <title>About Us | NextGoShift Packers & Movers India</title>
         <meta
           name="description"
-          content="Learn about the story of Next Go Shift Packers & Movers, founded by Narasimha Gunje — a vision built on trust, innovation, and a mission to simplify relocation across India."
+          content="Discover the story of NextGoShift, India’s trusted packers and movers. Founded by Narasimha Gunje, our mission is to provide safe, reliable, and stress-free relocation across India."
+        />
+        <meta
+          name="keywords"
+          content="packers and movers India, home shifting, office relocation, vehicle transport, NextGoShift"
         />
       </Helmet>
-
-     
 
       {/* Founder Section */}
       <section className="bg-white py-20 px-6">
@@ -33,7 +34,7 @@ const About = () => {
           <div className="md:w-1/2 flex justify-center">
             <img
               src={founderImage}
-              alt="Founder Narasimha Gunje"
+              alt="Founder Narasimha Gunje NextGoShift"
               className="w-full max-w-sm md:max-w-md h-auto object-cover rounded-2xl shadow-xl border-4 border-white"
             />
           </div>
@@ -47,17 +48,13 @@ const About = () => {
             </p>
             <p className="text-gray-700 leading-relaxed text-lg mb-4">
               <strong>Narasimha Gunje</strong> founded NextGoShift with a simple belief:
-              moving homes should feel exciting, not exhausting. After witnessing countless
+              moving homes should feel exciting, not exhausting. Witnessing countless
               people struggle with unreliable packers and unexpected costs, he envisioned
-              a brand built on transparency, care, and technology — where every move feels
-              effortless and every customer feels valued.
+              a brand built on transparency, care, and technology — where every move is effortless and every customer valued.
             </p>
             <p className="text-gray-700 leading-relaxed text-lg">
-              His leadership turned that dream into reality. What started as a local service
-              quickly grew into one of India’s most trusted relocation brands, recognized for
-              its honesty, precision, and people-first approach. Today, Narasimha continues
-              to lead with passion — ensuring every move is not just about boxes, but about
-              <em> trust, comfort, and new beginnings.</em>
+              Today, Narasimha continues to lead with passion, ensuring every relocation is about
+              <em> trust, comfort, and new beginnings.</em> NextGoShift now serves clients all over India as a trusted packers and movers company.
             </p>
           </div>
         </div>
@@ -69,7 +66,7 @@ const About = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">Our Mission & Values</h2>
           <p className="text-gray-600 max-w-3xl mx-auto">
             Every move is more than just transport — it’s a story of trust.  
-            We strive to make every relocation stress-free, secure, and memorable.
+            We strive to make every relocation stress-free, secure, and memorable across India.
           </p>
         </div>
 
@@ -91,7 +88,7 @@ const About = () => {
 
       {/* CTA Section */}
       <section className="bg-orange-500 text-white py-12 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready for a stress-free move?</h2>
+        <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready for a stress-free move across India?</h2>
         <a
           href="/contact"
           className="bg-white text-orange-600 font-semibold px-6 py-3 rounded-lg shadow hover:bg-gray-100 transition"
@@ -104,8 +101,10 @@ const About = () => {
       {/* Why Choose Us */}
       <section className="py-20 bg-gray-100 px-6">
         <div className="max-w-6xl mx-auto text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">Why Choose NextGoShift?</h2>
-          <p className="text-gray-600 max-w-3xl mx-auto">Trusted by thousands of families and businesses for safe, reliable, and affordable relocations.</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">Why Choose NextGoShift Packers & Movers?</h2>
+          <p className="text-gray-600 max-w-3xl mx-auto">
+            Trusted by thousands of families and businesses for safe, reliable, and affordable relocations all over India.
+          </p>
         </div>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {benefits.map((b, idx) => (
@@ -120,8 +119,6 @@ const About = () => {
           ))}
         </div>
       </section>
-
-      
     </div>
   );
 };
