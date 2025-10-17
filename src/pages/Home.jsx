@@ -1,23 +1,21 @@
 // src/pages/Home.jsx
 import React from "react";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 import { useNavigate } from "react-router-dom";
 import hero480 from "../assets/hero1-480.webp";
 import hero768 from "../assets/hero1-768.webp";
 import hero1024 from "../assets/hero1-1024.webp";
-
 
 // Animation Variants
 const staggerContainer = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.25, delayChildren: 0.2 } },
 };
-
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
-
 const buttonAnim = {
   hidden: { opacity: 0, scale: 0.8 },
   visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "backOut" } },
@@ -78,55 +76,89 @@ export default function HomePage() {
 
   return (
     <div className="font-sans flex flex-col min-h-screen bg-gray-50">
+      {/* SEO Meta Tags */}
+      <Helmet>
+        <title>Packers and Movers in India | NextGoShift Trusted Relocation</title>
+        <meta
+          name="description"
+          content="NextGoShift offers professional packers and movers services all over India, including home shifting, office relocation, and vehicle transportation. Safe, reliable, and affordable."
+        />
+        <meta
+          name="keywords"
+          content="packers and movers, home shifting, office relocation, vehicle transport, relocation services India, NextGoShift"
+        />
+        <link rel="canonical" href="https://nextgoshift.com/" />
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "NextGoShift",
+              "url": "https://nextgoshift.com",
+              "logo": "https://nextgoshift.com/logo.png",
+              "description": "Professional packers and movers across India providing home shifting, office relocation, and vehicle transport.",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Tadepalligudem 534101",
+                "addressLocality": "West Godavari",
+                "addressRegion": "Andhra Pradesh",
+                "postalCode": "534101",
+                "addressCountry": "IN"
+              },
+              "telephone": "+919666465890",
+              "areaServed": "IN"
+            }
+          `}
+        </script>
+      </Helmet>
+
       <main className="flex-grow">
         {/* Hero Section */}
-        {/* Hero Section */}
-<section
-  className="relative text-white text-center px-6 min-h-[80vh] flex items-center justify-center"
-  aria-label="Hero Section"
->
+        <section
+          className="relative text-white text-center px-6 min-h-[80vh] flex items-center justify-center"
+          aria-label="Hero Section"
+        >
           <img
             src={hero1024}
             srcSet={`${hero480} 480w, ${hero768} 768w, ${hero1024} 1024w`}
             sizes="(max-width: 768px) 100vw, 1024px"
-            alt="Safe & Stress-Free Relocations"
+            alt="Trusted Packers and Movers Safe Relocation NextGoShift India"
             className="absolute inset-0 w-full h-full object-cover"
             width={1024}
             height={576}
             fetchpriority="high"
           />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70"></div>
 
-           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70"></div>
-
-  <motion.div
-    variants={staggerContainer}
-    initial="hidden"
-    animate="visible"
-    className="relative z-10 max-w-3xl mx-auto"
-  >
-    <motion.h1
-      variants={fadeUp}
-      className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg"
-    >
-      Safe & Stress-Free Relocations with <br />
-      <span className="text-orange-300 drop-shadow-lg">Next Go Shift</span>
-    </motion.h1>
-    <motion.p
-      variants={fadeUp}
-      className="text-lg max-w-2xl mx-auto mb-6 drop-shadow-md text-gray-100"
-    >
-      10+ years of trusted experience in local and national packing & moving services across India.
-    </motion.p>
-    <motion.a
-      variants={buttonAnim}
-      href="/contact"
-      aria-label="Get Free Quote"
-      className="inline-block bg-orange-700 hover:bg-orange-800 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition"
-    >
-      Get Free Quote
-    </motion.a>
-  </motion.div>
-</section>
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+            className="relative z-10 max-w-3xl mx-auto"
+          >
+            <motion.h1
+              variants={fadeUp}
+              className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg"
+            >
+              Trusted <span className="text-orange-300 drop-shadow-lg">Packers and Movers</span> Across India
+            </motion.h1>
+            <motion.p
+              variants={fadeUp}
+              className="text-lg max-w-2xl mx-auto mb-6 drop-shadow-md text-gray-100"
+            >
+              NextGoShift provides professional home shifting, office relocation, and vehicle transport services throughout India with over 10 years of trusted experience. Safe, reliable, and affordable.
+            </motion.p>
+            <motion.a
+              variants={buttonAnim}
+              href="/contact"
+              aria-label="Get Free Quote"
+              className="inline-block bg-orange-700 hover:bg-orange-800 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition"
+            >
+              Get Free Quote
+            </motion.a>
+          </motion.div>
+        </section>
 
         {/* About Section */}
         <section className="py-16 px-6 max-w-7xl mx-auto text-center">
@@ -137,7 +169,7 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="text-3xl font-bold text-blue-900 mb-4"
           >
-            About Us
+            About Our Packers and Movers Services in India
           </motion.h2>
           <motion.p
             variants={fadeUp}
@@ -146,18 +178,14 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="text-gray-700 max-w-3xl mx-auto"
           >
-            Next Go Shift Packers and Movers is one of the most trusted names in
-            the relocation industry with over a decade of expertise. We
-            specialize in providing complete packing and moving solutions, from
-            local shifting to all-India relocations. Our professional team
-            ensures that every move is handled with precision, safety, and care.
+            NextGoShift Packers and Movers is a trusted relocation company serving clients all over India. We provide complete moving solutions for home, office, and vehicles. Our trained professionals ensure a safe, smooth, and stress-free move every time.
           </motion.p>
         </section>
 
         {/* Services Section */}
         <section className="bg-white py-16 px-6">
           <h2 className="text-3xl font-bold text-blue-900 text-center mb-10">
-            Our Services
+            Our Packers and Movers Services
           </h2>
           <motion.div
             variants={staggerContainer}
@@ -180,9 +208,11 @@ export default function HomePage() {
           </motion.div>
         </section>
 
-        {/* Why Choose Us */}
+        {/* Why Choose Us Section */}
         <section className="bg-gray-50 py-16 px-6 text-center">
-          <h2 className="text-3xl font-bold text-purple-800 mb-10">Why Choose Us</h2>
+          <h2 className="text-3xl font-bold text-purple-800 mb-10">
+            Why Choose NextGoShift Packers and Movers
+          </h2>
           <motion.div
             variants={staggerContainer}
             initial="hidden"
@@ -197,7 +227,9 @@ export default function HomePage() {
                 whileHover={{ scale: 1.03 }}
                 className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition border-l-4 border-orange-500 text-left"
               >
-                <h3 className="text-purple-800 font-semibold">{index + 1}. {reason}</h3>
+                <h3 className="text-purple-800 font-semibold">
+                  {index + 1}. {reason}
+                </h3>
               </motion.div>
             ))}
           </motion.div>
@@ -212,10 +244,10 @@ export default function HomePage() {
             viewport={{ once: true }}
           >
             <motion.h2 variants={fadeUp} className="text-3xl font-bold mb-4">
-              Ready to Move? We’re Here to Help!
+              Ready to Move Across India? We’re Here to Help!
             </motion.h2>
             <motion.p variants={fadeUp} className="mb-6">
-              Contact Next Go Shift Packers and Movers today for a stress-free relocation experience.
+              Contact NextGoShift Packers and Movers today for a stress-free relocation experience anywhere in India.
             </motion.p>
             <motion.a
               variants={buttonAnim}
@@ -235,7 +267,7 @@ export default function HomePage() {
             <div>
               <h2 className="text-2xl font-bold text-purple-800 mb-4">Get in Touch</h2>
               <p className="text-gray-700 mb-4">
-                Our support team is available 24/7 to help with your shifting needs.
+                Our support team is available 24/7 to help with your relocation needs across India.
               </p>
               <ul className="space-y-3 text-gray-700">
                 <li>📍 Tadepalligudem 534101, West Godavari, Andhra Pradesh, India</li>
@@ -258,7 +290,6 @@ export default function HomePage() {
                 <input
                   type="text"
                   name="name"
-                  id="name"
                   placeholder="Your Name"
                   autoComplete="name"
                   className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
@@ -268,7 +299,6 @@ export default function HomePage() {
                 <input
                   type="email"
                   name="email"
-                  id="email"
                   placeholder="Your Email"
                   autoComplete="email"
                   className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
@@ -277,10 +307,8 @@ export default function HomePage() {
                 />
                 <textarea
                   name="message"
-                  id="message"
                   placeholder="Your Message"
                   rows="5"
-                  autoComplete="off"
                   className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
                   required
                   aria-label="Your Message"
