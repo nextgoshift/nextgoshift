@@ -2,10 +2,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import heroWebP from "../assets/hero1.webp";
-import heroJPG from "../assets/hero1.jpeg"; // fallback JPEG
-import logoWebP from "../assets/logo.webp";
-import logoPNG from "../assets/logo.png";
+import heroImage from "../assets/hero1.webp"; // Optimized WebP
+import logoImage from "../assets/logo.webp"; // Next-gen logo
 
 // Animation Variants
 const staggerContainer = {
@@ -78,27 +76,23 @@ export default function HomePage() {
 
   return (
     <div className="font-sans flex flex-col min-h-screen bg-gray-50">
-      <main className="flex-grow">
-        {/* Preload LCP Image */}
-        <link rel="preload" as="image" href={heroWebP} />
+      {/* Preload LCP image */}
+      <link rel="preload" as="image" href={heroImage} />
 
+      <main className="flex-grow">
         {/* Hero Section */}
         <section
           className="relative text-white text-center px-6 min-h-[80vh] flex items-center justify-center"
           aria-label="Hero Section"
         >
-          <picture>
-            <source srcSet={heroWebP} type="image/webp" />
-            <img
-              src={heroJPG}
-              alt="Safe & Stress-Free Relocations"
-              className="absolute inset-0 w-full h-full object-cover"
-              width={1920}
-              height={1080}
-              loading="eager"
-              fetchpriority="high"
-            />
-          </picture>
+          <img
+            src={heroImage}
+            alt="Safe & Stress-Free Relocations"
+            className="absolute inset-0 w-full h-full object-cover"
+            width={1920}
+            height={1080}
+            fetchpriority="high"
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60"></div>
 
           <motion.div
@@ -116,7 +110,7 @@ export default function HomePage() {
             </motion.h1>
             <motion.p
               variants={fadeUp}
-              className="text-lg max-w-2xl mx-auto mb-6 drop-shadow-md"
+              className="text-lg max-w-2xl mx-auto mb-6 drop-shadow-md text-gray-100"
             >
               10+ years of trusted experience in local and national packing & moving services across India.
             </motion.p>
@@ -124,7 +118,7 @@ export default function HomePage() {
               variants={buttonAnim}
               href="/contact"
               aria-label="Get Free Quote"
-              className="inline-block bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition"
+              className="inline-block bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition"
             >
               Get Free Quote
             </motion.a>
@@ -247,7 +241,7 @@ export default function HomePage() {
               </ul>
               <a
                 href="tel:+919666465890"
-                className="inline-block mt-6 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold shadow transition"
+                className="inline-block mt-6 bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-lg font-semibold shadow transition"
                 aria-label="Call Now"
               >
                 📞 Call Us Now
@@ -262,6 +256,7 @@ export default function HomePage() {
                   type="text"
                   name="name"
                   placeholder="Your Name"
+                  autoComplete="name"
                   className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
                   required
                   aria-label="Your Name"
@@ -270,6 +265,7 @@ export default function HomePage() {
                   type="email"
                   name="email"
                   placeholder="Your Email"
+                  autoComplete="email"
                   className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
                   required
                   aria-label="Your Email"
@@ -278,6 +274,7 @@ export default function HomePage() {
                   name="message"
                   placeholder="Your Message"
                   rows="5"
+                  autoComplete="off"
                   className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
                   required
                   aria-label="Your Message"
@@ -297,10 +294,8 @@ export default function HomePage() {
 
       {/* Floating Call Button */}
       <a
-        href="tel:+9189666465890"
-        className="fixed bottom-24 right-5 bg-blue-900 text-white p-4 rounded-full shadow-xl 
-                   hover:bg-blue-800 transition-all duration-300 z-50 flex items-center justify-center 
-                   animate-[pulse_2s_infinite] hover:scale-110"
+        href="tel:+919666465890"
+        className="fixed bottom-24 right-5 bg-blue-900 text-white p-4 rounded-full shadow-xl hover:bg-blue-800 transition-all duration-300 z-50 flex items-center justify-center animate-[pulse_2s_infinite] hover:scale-110"
         aria-label="Call Now"
       >
         <motion.svg
@@ -320,9 +315,7 @@ export default function HomePage() {
         href="https://wa.me/919666465880"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-5 right-5 bg-green-500 text-white p-4 rounded-full shadow-xl 
-                   hover:bg-green-600 transition-all duration-300 z-50 flex items-center justify-center 
-                   animate-[bounce_2s_infinite] hover:scale-110"
+        className="fixed bottom-5 right-5 bg-green-500 text-white p-4 rounded-full shadow-xl hover:bg-green-600 transition-all duration-300 z-50 flex items-center justify-center animate-[bounce_2s_infinite] hover:scale-110"
         aria-label="Chat on WhatsApp"
       >
         <motion.svg

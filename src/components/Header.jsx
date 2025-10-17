@@ -1,3 +1,4 @@
+// src/components/Header.jsx
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
@@ -49,9 +50,9 @@ export default function Header() {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex space-x-6 font-medium">
-          <button onClick={() => handleNav("/")} className="hover:text-orange-400" aria-label="Navigate to Home Page">Home</button>
-          <button onClick={() => handleNav("/about")} className="hover:text-orange-400" aria-label="Navigate to About Page">About</button>
-          <button onClick={() => handleNav("/contact")} className="hover:text-orange-400" aria-label="Navigate to Contact Page">Contact</button>
+          <button onClick={() => handleNav("/")} className="hover:text-orange-600" aria-label="Navigate to Home Page">Home</button>
+          <button onClick={() => handleNav("/about")} className="hover:text-orange-600" aria-label="Navigate to About Page">About</button>
+          <button onClick={() => handleNav("/contact")} className="hover:text-orange-600" aria-label="Navigate to Contact Page">Contact</button>
         </nav>
 
         {/* Mobile Hamburger */}
@@ -75,12 +76,12 @@ export default function Header() {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden bg-blue-900 px-6 py-4 space-y-3 shadow-lg">
-          <button onClick={() => handleNav("/")} className="w-full text-left text-white hover:text-orange-400" aria-label="Navigate to Home Page">Home</button>
-          <button onClick={() => handleNav("/about")} className="w-full text-left text-white hover:text-orange-400" aria-label="Navigate to About Page">About</button>
-          <button onClick={() => handleNav("/contact")} className="w-full text-left text-white hover:text-orange-400" aria-label="Navigate to Contact Page">Contact</button>
+          <button onClick={() => handleNav("/")} className="w-full text-left text-white hover:text-orange-600" aria-label="Navigate to Home Page">Home</button>
+          <button onClick={() => handleNav("/about")} className="w-full text-left text-white hover:text-orange-600" aria-label="Navigate to About Page">About</button>
+          <button onClick={() => handleNav("/contact")} className="w-full text-left text-white hover:text-orange-600" aria-label="Navigate to Contact Page">Contact</button>
           <a
             href="tel:+918790140046"
-            className="block bg-orange-500 text-white px-4 py-2 rounded-lg font-semibold shadow hover:bg-orange-600 text-center"
+            className="block bg-orange-600 text-white px-4 py-2 rounded-lg font-semibold shadow hover:bg-orange-700 text-center"
             aria-label="Call NextGoShift now"
           >
             📞 Call Now
