@@ -120,44 +120,6 @@ export default function HomePage() {
           </motion.div>
         </section>
 
-        {/* Location Section */}
-        <section className="bg-gray-100 py-16 px-6 text-center">
-          <h2 className="text-3xl font-bold text-blue-900 mb-8">Our Location</h2>
-          <p className="text-gray-700 max-w-2xl mx-auto mb-10">
-            We proudly serve customers all across Andhra Pradesh and nearby cities, delivering smooth and
-            stress-free shifting services wherever you need.
-          </p>
-
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="flex flex-col sm:flex-row justify-center gap-8 max-w-4xl mx-auto"
-          >
-            {/* State Card */}
-            <motion.div
-              variants={fadeUp}
-              whileHover={{ scale: 1.05 }}
-              className="flex-1 bg-white rounded-xl shadow-lg p-6 border-t-4 border-orange-500 cursor-pointer"
-              onClick={() => navigate("/locations")}
-              aria-label="View State Locations"
-            >
-              <h3 className="text-xl font-semibold text-blue-800 mb-2">State</h3>
-            </motion.div>
-
-            {/* City Card */}
-            <motion.div
-              variants={fadeUp}
-              whileHover={{ scale: 1.05 }}
-              className="flex-1 bg-white rounded-xl shadow-lg p-6 border-t-4 border-purple-600 cursor-pointer"
-              onClick={() => navigate("/locations")}
-              aria-label="View City Locations"
-            >
-              <h3 className="text-xl font-semibold text-blue-800 mb-2">City</h3>
-            </motion.div>
-          </motion.div>
-        </section>
 
         {/* About Section */}
         <section className="py-16 px-6 max-w-7xl mx-auto text-center">
