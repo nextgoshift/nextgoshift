@@ -82,7 +82,7 @@ export default function Header() {
         <div className="md:hidden bg-blue-900 px-6 py-4 space-y-3 shadow-lg">
           <button onClick={() => handleNav("/")} className="w-full text-left text-white hover:text-orange-400">Home</button>
           <button onClick={() => handleNav("/about")} className="w-full text-left text-white hover:text-orange-400">About</button>
-          <button onClick={() => handleNav("/locations")} className="w-full text-left text-white hover:text-orange-400">Locations</button>
+          
           <button onClick={() => handleNav("/contact")} className="w-full text-left text-white hover:text-orange-400">Contact</button>
           <a href="tel:+918790140046" className="block bg-orange-500 text-white px-4 py-2 rounded-lg font-semibold shadow hover:bg-orange-600 text-center">
             📞 Call Now
