@@ -7,8 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/Home";
 import About from "./pages/About";
 import ContactPage from "./pages/ContactPage";
-import LocationsPage from "./pages/LocationsPage";
-import CityPage from "./pages/locations/CityPage";
+
 
 // Components
 import Header from "./components/Header";
@@ -28,8 +27,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/locations" element={<LocationsPage />} />
-        <Route path="/locations/:city" element={<CityPage />} />
+      
       </Routes>
 
       {/* Persistent Footer */}

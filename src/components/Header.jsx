@@ -59,7 +59,7 @@ export default function Header() {
         <nav className="hidden md:flex space-x-6 font-medium">
           <button onClick={() => handleNav("/")} className="hover:text-orange-400">Home</button>
           <button onClick={() => handleNav("/about")} className="hover:text-orange-400">About</button>
-          <button onClick={() => handleNav("/locations")} className="hover:text-orange-400">Locations</button>
+
           <button onClick={() => handleNav("/contact")} className="hover:text-orange-400">Contact</button>
         </nav>
 
